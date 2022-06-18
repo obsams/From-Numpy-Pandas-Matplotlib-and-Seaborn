@@ -15,7 +15,11 @@ permissions:
 jobs:
   build:
 
-    runs-on: ubuntu-latest
+    runs-on: ${{matrix.os}}# this is used to refer to the list of OS below
+    strategy:
+    matrix:
+    os: [ubuntu-latest,windows-latest,MacOS-latest]
+
 
     steps:
     - uses: actions/checkout@v3
